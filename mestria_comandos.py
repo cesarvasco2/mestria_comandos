@@ -33,7 +33,7 @@ try:
                 payload_dict = json.loads(json.loads(payload))
                 topic = 'mestria/'+payload_dict['id_dispositivo']+'/sub'           
                 command_bin = '{'+'"'+payload_dict['codigo_comando']+'"'+':'+payload_dict['status']+'}'
-                connected = client.publish(topic,command_bin, qos=0, retain=True)
+                connected = client.publish(topic,command_bin, qos=0, retain=False)
                 print('\033[42;1;33m'+'Tópico: '+'\033[0;0m'+topic+ '\n\033[42;1;33m'+'Comando: '+'\033[0;0m'+command_bin)
                 message.delete()
             except KeyError:
